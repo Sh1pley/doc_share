@@ -1,4 +1,3 @@
-
 # Project Overview
 This project is a platform for teachers to upload and share Markdown documents with students. The platform will allow teachers to easily share documents through unique URLs, which can be accessed by students without requiring an account.
 
@@ -38,8 +37,8 @@ These are potential questions that need to be answered in order to refine the pr
 
 | Task                            | Description                                  | Priority   | Estimated Time | Status      |
 |---------------------------------|----------------------------------------------|------------|----------------|-------------|
-| [ ] Teacher account creation    | Teacher sign up and account creation         | Must Have  | 2 hours        | Started |
-| [ ] Document upload and storage | Upload and store Markdown documents          | Must Have  | 3 hours        | Not Started |
+| [ ] Teacher account creation    | Teacher sign up and account creation         | Must Have  | 2 hours        | Basic Implementation |
+| [ ] Document upload and storage | Upload and store Markdown documents          | Must Have  | 3 hours        | Started |
 | [ ] Markdown rendering          | Render Markdown documents as HTML            | Must Have  | 2 hours        | Not Started |
 | [ ] Public file access          | Generate unique public URLs from documents   | Must Have  | 2 hours        | Not Started |
 | [ ] Basic admin interface       | Account / Document management                | Should Have| 1 hour         | Not Started |
