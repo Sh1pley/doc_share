@@ -1,4 +1,5 @@
 class Document < ApplicationRecord
+  VALID_FILE_TYPES = %w[text/markdown]
   belongs_to :teacher
   has_one_attached :file
 
@@ -27,8 +28,8 @@ class Document < ApplicationRecord
   end
 
   def validate_file_type
-    if file.attached? && !file.content_type.in?(%w[text/markdown])
-      errors.add(:file, "must be a markdown file.")
+    if file.attached? && !file.content_type.in?(VALID_FILE_TYPES)
+      errors.add(:file, "must be a valid file type. Valid types: #{VALID_FILE_TYPES.join(", ")}")
     end
   end
 end

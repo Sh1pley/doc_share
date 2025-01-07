@@ -19,7 +19,7 @@ RSpec.describe Document, type: :model do
 
       it "is invalid" do
         expect(document).not_to be_valid
-        expect(document.errors[:file]).to include("must be a markdown file.")
+        expect(document.errors[:file]).to include("must be a valid file type. Valid types: text/markdown")
       end
     end
   end
