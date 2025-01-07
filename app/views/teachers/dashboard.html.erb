@@ -1,24 +1,16 @@
-<h1>Welcome to the Teacher's Dashboard</h1>
+<h1>Welcome, <%= current_teacher.email %></h1>
 
-<% if teacher_signed_in? %>
-  <!-- Display logged-in state -->
-  <h2>Welcome, <%= @teacher.email %></h2>
-  <p>Here you can manage your documents.</p>
-  
-  <!-- Placeholder for documents -->
-  <div class="document-placeholder">
-    <h3>Your Documents</h3>
-    <p>No documents uploaded yet.</p>
-  </div>
+<h2>Upload Document</h2>
+<turbo-frame id="upload_document">
+  <%= render partial: "documents/form", locals: { model: @document } %>
+</turbo-frame>
 
-  <!-- Link to document uploader -->
-  <%#= link_to "Upload a Document", new_teacher_document_path %>
-
-<% else %>
-  <!-- Display logged-out state -->
-  <p>This platform allows you to upload and share documents with your students. Please sign in or sign up to get started.</p>
-  
-  <%= link_to "Sign In", new_teacher_session_path %> |
-  <%= link_to "Sign Up", new_teacher_registration_path %>
-<% end %>
+<h2>Your Documents</h2>
+<turbo-frame>
+  <ul id="documents_list">
+    <% @teacher.documents.each do |document| %>
+      <%= render partial: "documents/document", locals: { document: document } %>
+    <% end %>
+  </ul>
+</turbo-frame>
 

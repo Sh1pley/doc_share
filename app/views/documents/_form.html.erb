@@ -1,0 +1,14 @@
+<%= form_with model: model, url: documents_path,  data: { turbo: true } do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :file %>
+    <%= f.file_field :file %>
+  </div>
+  <div>
+    <%= f.submit "Upload" %>
+  </div>
+<% end %>
+

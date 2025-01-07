@@ -1,0 +1,15 @@
+<turbo-stream action="replace" target="upload_document">
+  <template>
+    <%= render partial: "documents/form", locals: { model: Document.new }, formats: [:html] %>
+  </template>
+</turbo-stream>
+
+<turbo-stream action="prepend" target="documents_list">
+  <template>
+    <li>
+      <%= link_to @document.title, document_path(@document) %> |
+    </li>
+  </template>
+</turbo-stream>
+
+
