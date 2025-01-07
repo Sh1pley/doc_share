@@ -17,7 +17,7 @@ RSpec.describe DocumentsController, type: :controller do
         }.to change(Document, :count).by(1)
 
         expect(Document.last.file.content_type).to eq("text/markdown")
-        expect(MarkdownDocument.count).to eq(1)
+        expect(Document.last).to be_a(MarkdownDocument)
         expect(response).to redirect_to(root_path)
       end
     end
