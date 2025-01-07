@@ -2,7 +2,7 @@ class DocumentsController < ApplicationController
   before_action :authenticate_teacher!
 
   def create
-    @document = Document.new(document_params)
+    @document = Document.build_from_params(document_params)
     if @document.save
       redirect_to root_path, notice: "Document uploaded successfully."
     else
