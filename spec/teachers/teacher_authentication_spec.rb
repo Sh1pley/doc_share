@@ -10,11 +10,10 @@ RSpec.feature "Teacher Authentication", type: :feature do
     click_button "Sign up"
 
     # Verify that teacher is signed in by checking for the Logout link
-    expect(page).to have_link("Logout")
+    expect(page).to have_button("Logout")
 
     # Teacher signs out
-    click_link "Logout"
-    save_and_open_page
+    click_button "Logout"
 
     # Verify that teacher is signed out
     expect(page).to have_content("Signed out successfully.")

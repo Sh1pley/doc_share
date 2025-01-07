@@ -1,2 +1,24 @@
-<h1>Teachers#dashboard</h1>
-<p>Find me in app/views/teachers/dashboard.html.erb</p>
+<h1>Welcome to the Teacher's Dashboard</h1>
+
+<% if teacher_signed_in? %>
+  <!-- Display logged-in state -->
+  <h2>Welcome, <%= @teacher.email %></h2>
+  <p>Here you can manage your documents.</p>
+  
+  <!-- Placeholder for documents -->
+  <div class="document-placeholder">
+    <h3>Your Documents</h3>
+    <p>No documents uploaded yet.</p>
+  </div>
+
+  <!-- Link to document uploader -->
+  <%#= link_to "Upload a Document", new_teacher_document_path %>
+
+<% else %>
+  <!-- Display logged-out state -->
+  <p>This platform allows you to upload and share documents with your students. Please sign in or sign up to get started.</p>
+  
+  <%= link_to "Sign In", new_teacher_session_path %> |
+  <%= link_to "Sign Up", new_teacher_registration_path %>
+<% end %>
+
