@@ -14,6 +14,10 @@
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  # TODO Remove when Devise fixes https://github.com/heartcombo/devise/issues/5705
+  config.before(:each, type: :controller) do
+    Rails.application.reload_routes_unless_loaded
+  end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
