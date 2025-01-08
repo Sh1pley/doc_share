@@ -55,7 +55,7 @@ RSpec.describe DocumentsController, type: :controller do
           post :create, params: { document: { title: 'Invalid File', file: file, teacher_id: teacher.id } }
         }.not_to change(Document, :count)
 
-        expect(response).to render_template(:new)
+        expect(response).to redirect_to(root_path)
       end
     end
 
@@ -66,9 +66,8 @@ RSpec.describe DocumentsController, type: :controller do
           post :create, params: { document: { file: file }, format: :turbo_stream }
         }.to_not change(Document, :count)
 
-        expect(assigns(:document).errors[:title]).to include("can't be blank")
-
-        expect(response).to render_template(:new)
+        expect(flash[:alert]).to include("Title can't be blank")
+        expect(response.media_type).to eq("text/vnd.turbo-stream.html")
       end
     end
   end

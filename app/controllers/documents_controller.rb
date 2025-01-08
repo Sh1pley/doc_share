@@ -11,7 +11,7 @@ class DocumentsController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html { render :new }
+        format.html { redirect_to root_path }
         format.turbo_stream
       end
     end
