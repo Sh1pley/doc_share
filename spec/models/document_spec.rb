@@ -40,4 +40,26 @@ RSpec.describe Document, type: :model do
       expect { document.render_html }.to raise_error(NotImplementedError)
     end
   end
+
+  describe '#shareable_url' do
+    let(:document) { create(:document, teacher: teacher, title: "Test Document") }
+
+    it 'creates a unique URL based on the document slug' do
+      expect(document.shareable_url).to match(/^\/share\/[\w-]+$/)
+    end
+
+    it "does not generate the same URL for two different documents" do
+      doc1 = create(:document, teacher: teacher, title: "First Document")
+      doc2 = create(:document, teacher: teacher, title: "Second Document")
+
+      expect(doc1.slug).not_to eq(doc2.slug)
+    end
+
+    it "does not generate the same URL when titles are same" do
+      doc1 = create(:document, teacher: teacher, title: "First Document")
+      doc2 = create(:document, teacher: teacher, title: "First Document")
+
+      expect(doc1.slug).not_to eq(doc2.slug)
+    end
+  end
 end
