@@ -41,6 +41,7 @@ gem "thruster", require: false
 # gem "image_processing", "~> 1.2"
 
 gem "devise"
+gem "redcarpet"
 
 group :development, :test do
   gem "dotenv-rails"
