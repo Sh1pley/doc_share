@@ -1,8 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe DocumentsController, type: :controller do
+  render_views
+
   let(:teacher) { create(:teacher) }
-  let(:document) { create(:document, teacher: teacher) }
+  let(:file) { fixture_file_upload('spec/fixtures/files/test.md', 'text/markdown') }
 
   before :each do
     sign_in teacher
@@ -10,8 +12,6 @@ RSpec.describe DocumentsController, type: :controller do
 
   describe "POST #create" do
     context "when uploading a valid markdown file" do
-      let(:file) { fixture_file_upload('spec/fixtures/files/test.md', 'text/markdown') }
-
       it "creates a new document and redirects to root" do
         expect {
           post :create, params: { document: { title: "Test Doc", file: file } }
@@ -58,9 +58,23 @@ RSpec.describe DocumentsController, type: :controller do
         expect(response).to render_template(:new)
       end
     end
+
+    context "when the title is missing" do
+      it "does not save the document and renders the new template" do
+        # Simulate the creation of a document with no title
+        expect {
+          post :create, params: { document: { file: file }, format: :turbo_stream }
+        }.to_not change(Document, :count)
+
+        expect(assigns(:document).errors[:title]).to include("can't be blank")
+
+        expect(response).to render_template(:new)
+      end
+    end
   end
 
   describe "GET #show" do
+    let(:document) { create(:markdown_document, teacher: teacher) }
     it "assigns the requested document to @document" do
       get :show, params: { id: document.id }
       expect(assigns(:document)).to eq(document)
@@ -73,6 +87,7 @@ RSpec.describe DocumentsController, type: :controller do
   end
 
   describe "GET #share_document" do
+    let(:document) { create(:markdown_document, teacher: teacher) }
     context "when slug is valid" do
       it "finds the document by slug and renders :show" do
         get :share_document, params: { slug: document.slug }
@@ -82,7 +97,6 @@ RSpec.describe DocumentsController, type: :controller do
     end
 
     context "when slug is invalid" do
-      render_views
       it "renders a 404 page" do
         get :share_document, params: { slug: "invalid-slug" }
 
