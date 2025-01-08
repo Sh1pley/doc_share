@@ -1,4 +1,4 @@
 <li>
-  <%= link_to document.title, document_path(document) %> |
-  <%#= link_to "Delete", document_path(document), method: :delete, data: { confirm: "Are you sure?" } %>
+  <%= link_to document.title, document_path(document) %>
+  <span> - Added on <%= document.created_at.strftime("%B %d, %Y at %I:%M %p") %></span>
 </li>

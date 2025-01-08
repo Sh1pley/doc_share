@@ -25,9 +25,7 @@
   <body>      
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <% if teacher_signed_in? %>
-      <%= button_to 'Logout', destroy_teacher_session_path, method: :delete, data: { turbo: true }, class: 'btn btn-link' %>
-    <% end %>
+    <%= render "shared/navbar", back_button: @back_button %>
     <%= yield %>
   </body>
 </html>

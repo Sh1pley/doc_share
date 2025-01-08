@@ -1,2 +1,8 @@
+<%
+    @back_button ||= root_path
+%>
+
 <h1><%= @document.title %></h1>
-<%= link_to 'Back', root_path %>
+<div class="document-content">
+  <%= raw @document.render_html %>
+</div>

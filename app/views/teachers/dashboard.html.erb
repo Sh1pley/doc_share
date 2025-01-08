@@ -6,11 +6,9 @@
 </turbo-frame>
 
 <h2>Your Documents</h2>
-<turbo-frame>
-  <ul id="documents_list">
-    <% @teacher.documents.each do |document| %>
-      <%= render partial: "documents/document", locals: { document: document } %>
-    <% end %>
-  </ul>
-</turbo-frame>
+<ul id="documents_list">
+  <% @documents.each do |document| %>
+    <%= render partial: "documents/document", locals: { document: document } %>
+  <% end %>
+</ul>
 

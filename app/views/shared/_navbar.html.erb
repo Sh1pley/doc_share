@@ -1,0 +1,13 @@
+<nav class="navbar">
+  <div class="container">
+    <!-- Back Button -->
+    <% if defined?(back_button) && back_button.present? %>
+      <%= link_to 'Back', back_button, class: "btn btn-link btn-secondary" %>
+    <% end %>
+
+    <!-- Logout Button -->
+    <% if teacher_signed_in? %>
+      <%= button_to 'Logout', destroy_teacher_session_path, method: :delete, data: { turbo: true }, class: 'btn btn-link' %>
+    <% end %>
+  </div>
+</nav>

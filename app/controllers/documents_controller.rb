@@ -24,7 +24,7 @@ class DocumentsController < ApplicationController
   private
 
   def document_params
-    params.require(:document).permit(:title, :file, :teacher_id)
+    params.require(:document).permit(:title, :file)
   end
 
   def set_document
