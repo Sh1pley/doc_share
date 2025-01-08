@@ -7,9 +7,15 @@ class Document < ApplicationRecord
   validates :file, presence: true
   validate :validate_file_type
 
+  before_create :generate_slug
+
   def self.build_from_params(params = {})
     subclass = subclass_for_file_type(params[:file].content_type)
     subclass.new(params)
+  end
+
+  def shareable_url
+    "/share/#{slug}"
   end
 
   def render_html
@@ -18,14 +24,18 @@ class Document < ApplicationRecord
 
   private
 
-  def self.subclass_for_file_type(file_type)
-    case file_type
-    when "text/markdown"
-      MarkdownDocument
-    else
-      Document
+    def generate_slug
+      self.slug = SlugGenerator.generate(title.to_s, Document)
     end
-  end
+
+    def self.subclass_for_file_type(file_type)
+      case file_type
+      when "text/markdown"
+        MarkdownDocument
+      else
+        Document
+      end
+    end
 
   def validate_file_type
     if file.attached? && !file.content_type.in?(VALID_FILE_TYPES)
