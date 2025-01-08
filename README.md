@@ -39,8 +39,8 @@ These are potential questions that need to be answered in order to refine the pr
 |---------------------------------|----------------------------------------------|------------|----------------|-------------|
 | [ ] Teacher account creation    | Teacher sign up and account creation         | Must Have  | 2 hours        | Basic Implementation |
 | [ ] Document upload and storage | Upload and store Markdown documents          | Must Have  | 3 hours        | Basic Implementation |
-| [ ] Markdown rendering          | Render Markdown documents as HTML            | Must Have  | 2 hours        | Started |
-| [ ] Public file access          | Generate unique public URLs from documents   | Must Have  | 2 hours        | Not Started |
+| [ ] Markdown rendering          | Render Markdown documents as HTML            | Must Have  | 2 hours        | Basic Implementation |
+| [ ] Public file access          | Generate unique public URLs from documents   | Must Have  | 2 hours        | Started |
 | [ ] Basic admin interface       | Account / Document management                | Should Have| 1 hour         | Not Started |
 | [ ] Student accounts            | Implement Student Accounts                   | Should Have| 2 hours        | Not Started |
 | [ ] Folder organization         | Organize files into folders                  | Could Have | 2 hours        | Not Started |
