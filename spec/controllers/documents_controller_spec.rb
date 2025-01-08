@@ -42,7 +42,7 @@ RSpec.describe DocumentsController, type: :controller do
 
       it "renders :new with HTML format" do
         post :create, params: { document: { title: "" } }
-        expect(response).to render_template(:new)
+        expect(response).to redirect_to(root_path)
       end
 
       it "renders turbo_stream response on failure" do
@@ -82,10 +82,13 @@ RSpec.describe DocumentsController, type: :controller do
     end
 
     context "when slug is invalid" do
+      render_views
       it "renders a 404 page" do
         get :share_document, params: { slug: "invalid-slug" }
+
         expect(response).to have_http_status(:not_found)
-        expect(response.body).to include("The page you were looking for doesn't exist.")
+        expect(flash[:alert]).to eq("Sorry, the document you're looking for could not be found.")
+        expect(response.body).to include("The page you were looking for doesn’t exist.")
       end
     end
   end

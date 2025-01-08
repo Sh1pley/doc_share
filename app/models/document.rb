@@ -10,6 +10,9 @@ class Document < ApplicationRecord
   before_create :generate_slug
 
   def self.build_from_params(params = {})
+    file = params[:file]
+    raise ArgumentError, "Please attach a valid file to upload." if file.nil?
+
     subclass = subclass_for_file_type(params[:file].content_type)
     subclass.new(params)
   end

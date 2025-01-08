@@ -22,9 +22,10 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>      
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <body>
+    <div id="flash_messages">
+      <%= render "layouts/flash_messages" %>
+    </div>
     <%= render "shared/navbar", back_button: @back_button %>
     <%= yield %>
   </body>

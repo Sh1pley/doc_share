@@ -1,6 +1,6 @@
 class DocumentsController < ApplicationController
-  before_action :authenticate_teacher!,
-                :set_document, only: [ :show ]
+  before_action :authenticate_teacher!, only: [ :create, :show ]
+  before_action :set_document, only: [ :share_document ]
 
   def create
     @document = Document.build_from_params(document_params.merge(teacher_id: current_teacher.id))
@@ -15,10 +15,35 @@ class DocumentsController < ApplicationController
         format.turbo_stream
       end
     end
+  rescue ArgumentError => e
+    respond_to do |format|
+      format.html do
+        flash[:alert] = e.message
+        redirect_to root_path
+      end
+      format.turbo_stream do
+        flash.now[:alert] = e.message
+        render turbo_stream: turbo_stream.replace("flash_messages", partial: "layouts/flash_messages")
+      end
+    end
   end
 
   def show
-    @document
+    @document = Document.find(params[:id])
+  end
+
+  def share_document
+    if @document.nil?
+      flash[:alert] = "Sorry, the document you're looking for could not be found."
+      respond_to do |format|
+        format.html { render "errors/not_found", status: :not_found }
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.replace("flash_messages", partial: "layouts/flash_messages")
+        end
+      end
+    else
+      render :show
+    end
   end
 
   private
@@ -28,6 +53,6 @@ class DocumentsController < ApplicationController
   end
 
   def set_document
-    @document = Document.find(params[:id])
+    @document = Document.find_by(slug: params[:slug])
   end
 end
