@@ -37,16 +37,20 @@ These are potential questions that need to be answered in order to refine the pr
 
 | Task                            | Description                                  | Priority   | Estimated Time | Status      |
 |---------------------------------|----------------------------------------------|------------|----------------|-------------|
-| [x*] Teacher account creation    | Teacher sign up and account creation         | Must Have  | 2 hours        | Basic Implementation |
-| [x*] Document upload and storage | Upload and store Markdown documents          | Must Have  | 3 hours        | Basic Implementation |
-| [x*] Markdown rendering          | Render Markdown documents as HTML            | Must Have  | 2 hours        | Basic Implementation |
-| [x*] Public file access          | Generate unique public URLs from documents   | Must Have  | 2 hours        | Basic Implementation |
-| [ ] Basic admin interface       | Account / Document management                | Should Have| 1 hour         | Started |
+| [x] Teacher account creation    | Teacher sign up and account creation         | Must Have  | 2 hours        | Basic Implementation |
+| [x] Document upload and storage | Upload and store Markdown documents          | Must Have  | 3 hours        | Basic Implementation |
+| [x] Markdown rendering          | Render Markdown documents as HTML            | Must Have  | 2 hours        | Basic Implementation |
+| [x] Public file access          | Generate unique public URLs from documents   | Must Have  | 2 hours        | Basic Implementation |
+| [x] Basic admin interface       | Account / Document management                | Should Have| 1 hour         | Basic Implementation |
 | [ ] Student accounts            | Implement Student Accounts                   | Should Have| 2 hours        | Not Started |
 | [ ] Folder organization         | Organize files into folders                  | Could Have | 2 hours        | Not Started |
 | [ ] Buffer/Polish               | Bug fixes and minor improvements             | -          | 1 hour         | Not Started |
 
+## Updates
+* MVP interaction has basic implementation
 * Styling and clean up for MVP deployment to follow Basic Implementations
+* Not just basic styling... but still needs work
+* [WIP] find a place to deploy it
 
 ## Notes
 - **Milestones**:
