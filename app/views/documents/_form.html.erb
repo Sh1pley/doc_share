@@ -1,14 +1,20 @@
-<%= form_with model: model, url: documents_path,  data: { turbo: true } do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+<%= form_with model: model, url: documents_path, class: "card flex flex-col gap", data: { turbo: true } do |f| %>
+  <div class="flex flex-col gap-half">
+    <h1 class="text-2xl font-semibold leading-none">Upload a Document</h1>
+    <p class="text-sm text-subtle">Add documents to view and share.</p>
   </div>
-  <div>
-    <%= f.label :file %>
-    <%= f.file_field :file %>
-  </div>
-  <div>
-    <%= f.submit "Upload" %>
+  <div class="flex flex-col gap mb-2">
+    <div class="flex flex-col gap-half">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "input" %>
+    </div>
+    <div class="flex flex-col gap-half">
+      <%= f.label :file %>
+      <%= f.file_field :file, class: "input" %>
+    </div>
+    <div class="flex flex-col gap-half">
+      <%= f.submit "Upload", class: "btn btn--secondary" %>
+    </div>
   </div>
 <% end %>
 

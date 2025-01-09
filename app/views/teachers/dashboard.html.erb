@@ -1,14 +1,17 @@
-<h1>Welcome, <%= current_teacher.email %></h1>
+<div class="flex flex-col gap-half"
+  <h1 class="text-2xl font-semibold leading-none">Welcome, <%= current_teacher.email %></h1>
 
-<h2>Upload Document</h2>
-<turbo-frame id="upload_document">
-  <%= render partial: "documents/form", locals: { model: @document } %>
-</turbo-frame>
+  <turbo-frame id="upload_document">
+    <%= render partial: "documents/form", locals: { model: @document } %>
+  </turbo-frame>
 
-<h2>Your Documents</h2>
-<ul id="documents_list">
-  <% @documents.each do |document| %>
-    <%= render partial: "documents/document", locals: { document: document } %>
-  <% end %>
-</ul>
+  <div class="flex flex-col gap">
+    <h1 class="text-2xl font-semibold leading-none">Your Documents</h1>
+  </div>
+  <ul id="documents_list">
+    <% @documents.each do |document| %>
+      <%= render partial: "documents/document", locals: { document: document } %>
+    <% end %>
+  </ul>
+</div>
 

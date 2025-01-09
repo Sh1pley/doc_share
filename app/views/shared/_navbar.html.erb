@@ -2,7 +2,7 @@
   <div>
     <%= link_to "Home", root_path %>
   </div>
-  <% if defined?(admin) && admin %>
+  <% if defined?(current_teacher) && current_teacher.admin? %>
     <hr class="mi-2 border-is border-dark" style="block-size: 1.5rem" aria-hidden="true">
     <div>
         <%= link_to "Admin Dashboard", admin_teachers_path %>

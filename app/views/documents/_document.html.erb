@@ -1,9 +1,28 @@
 <li id="<%= dom_id(document) %>">
-  <%= link_to document.title, document_path(document) %>
-  <span> - Added on <%= document.created_at.strftime("%B %d, %Y at %I:%M %p") %></span>
-
-  <%= form_with(model: document, url: document_path(document), method: :delete, data: { turbo_action: 'replace', turbo_confirm: 'Are you sure you want to delete this document?' }) do |form| %>
-    <%= form.submit "Delete", class: "delete-button", data: { turbo_stream: turbo_stream.remove(dom_id(document)) } %>
-  <% end %>
+  <div class="accordion">
+    <details name="my_accordion">
+      <summary>
+        <%= document.title %>
+      </summary>
+      <p class="text-sm pbe-4">
+        <span> - Added on <%= document.created_at.strftime("%B %d, %Y at %I:%M %p") %></span>
+        <div class="flex gap">
+          <div class="input input--actor flex items-center gap" data-controller="copyable-input">
+            <input type="text" name="copyable_input" id="copyable_input" value="<%= "#{ENV["DEFAULT_APP_URL"]}#{document.shareable_url}" %>" readonly="readonly" data-copyable-input-target="input" />
+            <button class="btn btn--plain" data-action="copyable-input#copy">
+              <img aria-hidden="true" data-copyable-input-target="copyIcon" hidden="hidden" width="20" height="20" />
+              <img aria-hidden="true" data-copyable-input-target="successIcon" hidden="hidden" width="20" height="20" />
+              <span class="sr-only">Copy to clipboard</span>
+            </button>
+          </div>
+          <%= link_to "View", document_path(document), class: "btn btn--secondary" %>
+          <%= form_with(model: document, url: document_path(document), method: :delete, data: { turbo_action: 'replace', turbo_confirm: 'Are you sure you want to delete this document?' }) do |form| %>
+            <%= form.submit "Delete", class: "delete-button btn btn--negative", data: { turbo_stream: turbo_stream.remove(dom_id(document)) } %>
+          <% end %>
+        </div>
+      </p>
+    </details>
+  </div>
+  <hr class="mb-4 border-dark">
 </li>
 
