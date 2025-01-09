@@ -1,8 +1,6 @@
-<%
-    @back_button ||= root_path
-%>
-
-<h1><%= @document.title %></h1>
-<div class="document-content">
-  <%= raw @document.render_html %>
+<div class="card flex flex-col">
+  <div class="flex flex-col gap-half">
+    <h1 class="text-2xl font-semibold leading-none"><%= @document.title %></h1>
+    <p class="text-sm text-subtle prose"><%= raw @document.render_html %></p>
+  </div>
 </div>
