@@ -37,15 +37,16 @@ These are potential questions that need to be answered in order to refine the pr
 
 | Task                            | Description                                  | Priority   | Estimated Time | Status      |
 |---------------------------------|----------------------------------------------|------------|----------------|-------------|
-| [ ] Teacher account creation    | Teacher sign up and account creation         | Must Have  | 2 hours        | Basic Implementation |
-| [ ] Document upload and storage | Upload and store Markdown documents          | Must Have  | 3 hours        | Basic Implementation |
-| [ ] Markdown rendering          | Render Markdown documents as HTML            | Must Have  | 2 hours        | Basic Implementation |
-| [ ] Public file access          | Generate unique public URLs from documents   | Must Have  | 2 hours        | Started |
-| [ ] Basic admin interface       | Account / Document management                | Should Have| 1 hour         | Not Started |
+| [x*] Teacher account creation    | Teacher sign up and account creation         | Must Have  | 2 hours        | Basic Implementation |
+| [x*] Document upload and storage | Upload and store Markdown documents          | Must Have  | 3 hours        | Basic Implementation |
+| [x*] Markdown rendering          | Render Markdown documents as HTML            | Must Have  | 2 hours        | Basic Implementation |
+| [x*] Public file access          | Generate unique public URLs from documents   | Must Have  | 2 hours        | Basic Implementation |
+| [ ] Basic admin interface       | Account / Document management                | Should Have| 1 hour         | Started |
 | [ ] Student accounts            | Implement Student Accounts                   | Should Have| 2 hours        | Not Started |
 | [ ] Folder organization         | Organize files into folders                  | Could Have | 2 hours        | Not Started |
 | [ ] Buffer/Polish               | Bug fixes and minor improvements             | -          | 1 hour         | Not Started |
 
+* Styling and clean up for MVP deployment to follow Basic Implementations
 ## Notes
 - **Milestones**:
   - Focus on implementing Must-Have features first to ensure the MVP meets core requirements.
