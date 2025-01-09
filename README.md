@@ -4,6 +4,10 @@ This project is a platform for teachers to upload and share Markdown documents w
 ## Project Demo
 A deployed version of this app is available @ `https://doc-share-vwat.onrender.com/`
 
+* special note * 
+
+| Hobby tier for Render does not offer persistent disk access. So data records for accounts, and documents will persist to the postgres instance, but saved files ( markdown docs ) will not actually save.
+
 ## MVP Target
 The target for the MVP is to create a functional document-sharing platform for teachers. The platform should allow teachers to upload Markdown documents, generate unique public URLs for sharing, and display those documents as web pages that students can access. 
 
