@@ -6,11 +6,8 @@
 
 <turbo-stream action="prepend" target="documents_list">
   <template>
-    <li>
-      <%= link_to @document.title, document_path(@document) %>
-      <span> - Added on <%= @document.created_at.strftime("%B %d, %Y at %I:%M %p") %></span>
-    </li>
+    <%= render partial: "documents/document", locals: { document: @document }, formats: [:html] %>
   </template>
 </turbo-stream>
 
-
+<%= turbo_stream.replace "flash_messages", partial: "layouts/flash_messages" %>

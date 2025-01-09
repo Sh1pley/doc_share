@@ -4,9 +4,13 @@ Rails.application.routes.draw do
     root to: "teachers#dashboard", as: :authenticated_root
   end
 
+  namespace :admin do
+    resources :teachers
+  end
+
   root to: "teachers#dashboard"
 
-  resources :documents, only: [ :create, :show ]
+  resources :documents, only: [ :create, :show, :destroy ]
   get "share/:slug", to: "documents#share_document", as: :share_document
 
   # Health check route
