@@ -1,0 +1,9 @@
+<tr id="<%= dom_id(teacher) %>">
+  <td><%= teacher.full_name %></td>
+  <td><%= teacher.email %></td>
+  <td><%= teacher.admin? ? 'Yes' : 'No' %></td>
+  <td>
+    <%= button_to 'Edit', edit_admin_teacher_path(teacher), method: :get, class: 'btn btn-warning' %>
+    <%= button_to 'Delete', admin_teacher_path(teacher), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  </td>
+</tr>

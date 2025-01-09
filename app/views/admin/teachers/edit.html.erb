@@ -1,0 +1,9 @@
+<%
+  @back_button ||= root_path
+%>
+
+<h1>Edit Teacher</h1>
+
+<%= render "form", locals: { form_path: admin_teacher_path(@teacher), method: :put }%>
+
+<%= link_to 'Back to list', admin_teachers_path, class: 'btn btn-secondary' %>

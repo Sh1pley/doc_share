@@ -1,0 +1,21 @@
+<%
+  @back_button ||= root_path
+%>
+
+<h1>All Teachers</h1>
+
+<%= link_to 'Add New Teacher', new_admin_teacher_path, class: 'btn btn-primary' %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Teacher</th>
+      <th>Email</th>
+      <th>Admin?</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @teachers %>
+  </tbody>
+</table>

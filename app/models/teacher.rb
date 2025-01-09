@@ -5,4 +5,8 @@ class Teacher < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :documents
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end
