@@ -1,13 +1,18 @@
-<nav class="navbar">
-  <div class="container">
-    <!-- Back Button -->
-    <% if defined?(back_button) && back_button.present? %>
-      <%= link_to 'Back', back_button, class: "btn btn-link btn-secondary" %>
-    <% end %>
-
-    <!-- Logout Button -->
+<div class="flex items-center gap">
+  <div>
+    <%= link_to "Home", root_path %>
+  </div>
+  <% if defined?(admin) && admin %>
+    <hr class="mi-2 border-is border-dark" style="block-size: 1.5rem" aria-hidden="true">
+    <div>
+        <%= link_to "Admin Dashboard", admin_teachers_path %>
+    </div>
+  <% end %>
+  <hr class="mi-2 border-is border-dark" style="block-size: 1.5rem" aria-hidden="true">
+  <div>
     <% if teacher_signed_in? %>
-      <%= button_to 'Logout', destroy_teacher_session_path, method: :delete, data: { turbo: true }, class: 'btn btn-link' %>
+      <%= button_to "Logout", destroy_teacher_session_path, method: :delete, data: { turbo: true }, class: "btn" %>
     <% end %>
   </div>
-</nav>
+</div>
+

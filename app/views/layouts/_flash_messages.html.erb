@@ -1,5 +1,5 @@
 <% flash.each do |key, message| %>
-  <div class="flash <%= key %>">
+  <div popover class="flash flash--extended" style="--flash-position: 1rem;" data-controller="element-removal" data-action="animationend->element-removal#remove" role="<%= key %>">
     <%= message %>
   </div>
 <% end %>
