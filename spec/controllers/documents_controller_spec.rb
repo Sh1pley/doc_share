@@ -83,6 +83,24 @@ RSpec.describe DocumentsController, type: :controller do
       get :show, params: { id: document.id }
       expect(response).to render_template(:show)
     end
+
+    context "when the document belongs to the teacher" do
+      it "assigns the requested document to @document" do
+        get :show, params: { id: document.id }
+        expect(assigns(:document)).to eq(document)
+      end
+    end
+
+    context "when the document does not belong to the teacher" do
+      let(:another_teacher) { create(:teacher) }
+      let(:another_document) { create(:markdown_document, teacher: another_teacher) }
+
+      it "redirects to root_path with an alert" do
+        get :show, params: { id: another_document.id }
+        expect(response).to redirect_to(root_path)
+        expect(flash[:alert]).to eq("You do not have permission to view this document.")
+      end
+    end
   end
 
   describe "GET #share_document" do

@@ -47,6 +47,7 @@ These are potential questions that need to be answered in order to refine the pr
 | [ ] Buffer/Polish               | Bug fixes and minor improvements             | -          | 1 hour         | Not Started |
 
 * Styling and clean up for MVP deployment to follow Basic Implementations
+
 ## Notes
 - **Milestones**:
   - Focus on implementing Must-Have features first to ensure the MVP meets core requirements.
