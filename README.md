@@ -1,12 +1,8 @@
-# Project Overview
+# Intro / Preface
+This was a given project as part of the application process that was limited to 10 total hours. Included in the time was the planning, feature selection, tooling choices, project configuration, development and deployment. The application is no longer deployed or hosted ( as that costs money 😂 ) but here is the project scope I created from the prompt given, and the application I submitted.
+
+## Project Overview
 This project is a platform for teachers to upload and share Markdown documents with students. The platform will allow teachers to easily share documents through unique URLs, which can be accessed by students without requiring an account.
-
-## Project Demo
-A deployed version of this app is available @ `https://doc-share-vwat.onrender.com/`
-
-* special note * 
-
-| Hobby tier for Render does not offer persistent disk access. So data records for accounts, and documents will persist to the postgres instance, but saved files ( markdown docs ) will not actually save.
 
 ## MVP Target
 The target for the MVP is to create a functional document-sharing platform for teachers. The platform should allow teachers to upload Markdown documents, generate unique public URLs for sharing, and display those documents as web pages that students can access. 
